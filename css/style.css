@@ -29,3 +29,115 @@ a {
 /* ========================================== */
 /* TYPOGRAPHIE ET BASE (FIN)                  */
 /* ========================================== */
+
+/* ========================================== */
+/* DEBUT : EN-TÊTE / NAVIGATION               */
+/* ========================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #0d1f3d; /* Un bleu légèrement plus clair que le fond */
+    border-bottom: 1px solid #1a2a40;
+}
+
+header .logo h2 {
+    margin: 0;
+    color: var(--btn-orange);
+    font-size: 1.5em;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--btn-orange);
+}
+
+/* Version Mobile simple */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+/* ========================================== */
+/* FIN : EN-TÊTE / NAVIGATION                 */
+/* ========================================== */
+
+
+/* ========================================== */
+/* DEBUT : PIED DE PAGE / FOOTER              */
+/* ========================================== */
+footer {
+    background-color: #040d1a; /* Bleu très sombre pour contraster */
+    color: var(--text-white);
+    padding: 50px 20px 20px 20px;
+    margin-top: 80px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.footer-container div {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-info h3 {
+    color: var(--btn-orange);
+    margin-top: 0;
+}
+
+.footer-links ul, .footer-socials ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links a, .footer-socials a {
+    color: var(--text-white);
+    line-height: 2;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover, .footer-socials a:hover {
+    color: var(--btn-orange);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #1a2a40;
+    font-size: 0.9em;
+    color: #8892b0;
+}
+/* ========================================== */
+/* FIN : PIED DE PAGE / FOOTER                */
+/* ========================================== */
+
