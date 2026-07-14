@@ -1,0 +1,19 @@
+/* ========================================== */
+/* BOUTONS ET INTERACTIONS (DÉBUT)            */
+/* ========================================== */
+.btn-orange {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--btn-orange);
+    color: var(--text-white);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-orange:hover {
+    background-color: var(--btn-orange-hover);
+}
+/* ========================================== */
+/* BOUTONS ET INTERACTIONS (FIN)              */
+/* ========================================== */
