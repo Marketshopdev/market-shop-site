@@ -6,6 +6,19 @@
     <title>Contact | Market Shop</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/components.css">
+    <!-- Manifest PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a192f">
+
+<!-- Enregistrement du Service Worker (à placer avant la fermeture de </body>) -->
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js');
+        });
+    }
+</script>
+    
 </head>
 <body>
 
