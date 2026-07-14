@@ -343,3 +343,61 @@ footer {
 /* FIN : PAGE A PROPOS                        */
 /* ========================================== */
 
+/* ========================================== */
+/* DEBUT : PAGE CONTACT                       */
+/* ========================================== */
+.contact-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.contact-info {
+    background: #0d1f3d;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #1a2a40;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #1a2a40;
+    background: #0a192f;
+    color: white;
+}
+
+.contact-form button {
+    cursor: pointer;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+/* ========================================== */
+/* FIN : PAGE CONTACT                         */
+/* ========================================== */
+
