@@ -297,3 +297,49 @@ footer {
 /* FIN : PIED DE PAGE / FOOTER                */
 /* ========================================== */
     
+/* ========================================== */
+/* DEBUT : PAGE A PROPOS                      */
+/* ========================================== */
+.about-hero {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.about-container {
+    background-color: #0d1f3d; /* Même bleu que les cartes et le header */
+    border: 1px solid #1a2a40;
+    border-radius: 10px;
+    padding: 40px 30px;
+    margin-top: 40px;
+    text-align: left; /* Alignement du texte à gauche pour une lecture fluide */
+}
+
+.about-text h2 {
+    color: var(--btn-orange);
+    font-size: 1.6em;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #8892b0;
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-text p strong {
+    color: var(--text-white);
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 25px 20px;
+    }
+}
+/* ========================================== */
+/* FIN : PAGE A PROPOS                        */
+/* ========================================== */
+
