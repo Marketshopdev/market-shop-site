@@ -1,0 +1,31 @@
+/* ========================================== */
+/* COULEURS ET CONSTANTES (DÉBUT)             */
+/* ========================================== */
+:root {
+    --bg-blue-dark: #0A192F;    /* Bleu foncé pour le fond ou les sections */
+    --text-white: #FFFFFF;      /* Blanc pour le texte principal */
+    --btn-orange: #FF7F50;      /* Orange pour les appels à l'action */
+    --btn-orange-hover: #FF6347;/* Orange plus foncé au survol */
+}
+/* ========================================== */
+/* COULEURS ET CONSTANTES (FIN)               */
+/* ========================================== */
+
+/* ========================================== */
+/* TYPOGRAPHIE ET BASE (DÉBUT)                */
+/* ========================================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-blue-dark);
+    color: var(--text-white);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-white);
+}
+/* ========================================== */
+/* TYPOGRAPHIE ET BASE (FIN)                  */
+/* ========================================== */
