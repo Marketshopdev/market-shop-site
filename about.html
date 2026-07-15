@@ -3,130 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos | Market Shop</title>
-    <!-- ========================================== -->
-    <!-- LIENS VERS LES STYLES (DÉBUT)              -->
-    <!-- ========================================== -->
+    <title>À propos | Market Shop</title>
+    <meta name="description" content="Découvrez l'histoire, la mission et les valeurs de Market Shop, votre partenaire de confiance pour tous vos besoins.">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/components.css">
-    <!-- ========================================== -->
-    <!-- LIENS VERS LES STYLES (FIN)                -->
-    <!-- ========================================== -->
-
-    <!-- Manifest PWA -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0a192f">
-
-<!-- Enregistrement du Service Worker (à placer avant la fermeture de </body>) -->
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js');
-        });
-    }
-</script>
-    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a192f">
 </head>
 <body>
 
-    <!-- ========================================== -->
-    <!-- DEBUT : EN-TÊTE / NAVIGATION               -->
-    <!-- ========================================== -->
     <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="img/logo.png" alt="Logo Market Shop">
-            </a>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./img/logo.png" alt="Logo Market Shop">
+                </a>
+            </div>
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="about.html" class="nav-link active">À propos</a></li>
+                    <li><a href="products.html" class="nav-link">Produits</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Galerie</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                    <li><a href="contact.html" class="nav-link contact-btn">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="products.html">Produits</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="gallery.html">Galerie</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
     </header>
-    <!-- ========================================== -->
-    <!-- FIN : EN-TÊTE / NAVIGATION                 -->
-    <!-- ========================================== -->
 
     <main>
-        <!-- ========================================== -->
-        <!-- DEBUT : SECTION PRÉSENTATION COMPLÈTE      -->
-        <!-- ========================================== -->
         <section class="about-hero">
-            <h1 class="section-title">Qui Sommes-Nous ?</h1>
+            <span class="hero-tag">Qui sommes-nous ?</span>
+            <h1>À propos de Market Shop</h1>
+
             <div class="about-container">
                 <div class="about-text">
-                    <h2>Notre Histoire & Notre Mission</h2>
-                    <p>
-                        <strong>Market Shop</strong> est une entreprise spécialisée dans la vente de produits de qualité, 
-                        offrant à ses clients une expérience d'achat simple, rapide et sécurisée.
-                    </p>
-                    <p>
-                        Nous proposons une large gamme de produits à des prix compétitifs, avec un service client fiable 
-                        et un engagement constant envers la satisfaction de notre clientèle. Notre priorité absolue 
-                        est de vous fournir le meilleur rapport qualité-prix du marché, tout en restant à votre écoute 
-                        chaque jour pour répondre à vos moindres besoins.
-                    </p>
+                    <h2>Notre histoire</h2>
+                    <p>Market Shop est né d'une conviction simple : <strong>chacun mérite d'accéder à des produits de qualité, sans se ruiner.</strong> Depuis notre création, nous avons construit une entreprise tournée vers la satisfaction et la confiance de nos clients.</p>
+
+                    <h2>Notre mission</h2>
+                    <p>Offrir une expérience d'achat simple, rapide et sécurisée, avec une large gamme de produits à des prix compétitifs, soutenue par un service client fiable et disponible.</p>
+
+                    <h2>Nos valeurs</h2>
+                    <p><strong>Qualité :</strong> nous sélectionnons rigoureusement chaque produit et service que nous proposons.</p>
+                    <p><strong>Transparence :</strong> des prix clairs, sans surprise, et une communication honnête avec nos clients.</p>
+                    <p><strong>Proximité :</strong> une équipe joignable rapidement, par téléphone comme par WhatsApp.</p>
                 </div>
             </div>
         </section>
-        <!-- ========================================== -->
-        <!-- FIN : SECTION PRÉSENTATION COMPLÈTE        -->
-        <!-- ========================================== -->
+
+        <section class="why-us">
+            <h2 class="section-title">Market Shop en chiffres</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">👥</div>
+                    <h3>[NOMBRE]+ clients</h3>
+                    <p>satisfaits et fidèles à notre enseigne.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">📦</div>
+                    <h3>[NOMBRE]+ produits</h3>
+                    <p>disponibles dans notre catalogue.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">⭐</div>
+                    <h3>[NOMBRE] ans</h3>
+                    <p>d'expérience sur le marché.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🏆</div>
+                    <h3>100%</h3>
+                    <p>d'engagement envers la satisfaction client.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- ========================================== -->
-    <!-- DEBUT : PIED DE PAGE / FOOTER              -->
-    <!-- ========================================== -->
     <footer>
         <div class="footer-container">
-            <!-- Bloc Info -->
             <div class="footer-info">
                 <h3>MARKET SHOP</h3>
                 <p>Tout ce dont vous avez besoin, au meilleur prix. Votre satisfaction est notre priorité.</p>
+                <div class="footer-socials">
+                    <a href="[LIEN_FACEBOOK]" target="_blank" aria-label="Facebook">📘</a>
+                    <a href="[LIEN_INSTAGRAM]" target="_blank" aria-label="Instagram">📸</a>
+                    <a href="[LIEN_TIKTOK]" target="_blank" aria-label="TikTok">🎵</a>
+                    <a href="[LIEN_YOUTUBE]" target="_blank" aria-label="YouTube">▶️</a>
+                </div>
             </div>
-
-            <!-- Bloc Liens -->
             <div class="footer-links">
                 <h4>Liens Rapides</h4>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="about.html">À propos</a></li>
                     <li><a href="products.html">Produits</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-
-            <!-- Bloc Contacts Réels -->
             <div class="footer-contact">
                 <h4>Contactez-nous</h4>
-                <p>Besoin d'aide ? Appelez-nous :</p>
-                <p><a href="tel:+22879499501">+228 79 49 95 01</a></p>
-                <p><a href="tel:+22891719533">+228 91 71 95 33</a></p>
+                <p>📞 <a href="tel:+22879499501">+228 79 49 95 01</a></p>
+                <p>📞 <a href="tel:+22891719533">+228 91 71 95 33</a></p>
+                <p>✉️ <a href="mailto:[TON_EMAIL]">[TON_EMAIL]</a></p>
+                <p>📍 [TON_ADRESSE]</p>
+                <p>🕒 [HORAIRES_OUVERTURE]</p>
             </div>
         </div>
-
         <div class="footer-bottom">
             <p>&copy; 2026 Market Shop. Tous droits réservés. | Développé par DJ PADESCO / Padesco Digital Studio</p>
         </div>
     </footer>
-    <!-- ========================================== -->
-    <!-- FIN : PIED DE PAGE / FOOTER                -->
-    <!-- ========================================== -->
 
-    <!-- ========================================== -->
-    <!-- CHARGEMENT DES SCRIPTS JS (DÉBUT)          -->
-    <!-- ========================================== -->
+    <a href="https://wa.me/[TON_NUMERO_WHATSAPP]" class="float-btn whatsapp-btn" target="_blank" aria-label="Contacter sur WhatsApp">💬</a>
+    <a href="tel:+22879499501" class="float-btn call-btn" aria-label="Appeler Market Shop">📞</a>
+
     <script src="./js/main.js" defer></script>
-    <!-- ========================================== -->
-    <!-- CHARGEMENT DES SCRIPTS JS (FIN)            -->
-    <!-- ========================================== -->
-
 </body>
-  </html>
-  
+    </html>    
