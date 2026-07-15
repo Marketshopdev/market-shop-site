@@ -1,0 +1,8 @@
+// ============================================
+// FICHIER : robots.txt (nouveau, à la racine du projet)
+// ============================================
+User-agent: *
+Disallow: /gestion-marketshop-x7k2.html
+Disallow: /api/
+
+Sitemap: https://[TON-DOMAINE].com/sitemap.xml
