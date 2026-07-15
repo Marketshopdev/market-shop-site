@@ -1,23 +1,23 @@
+        / ============================================
+// FICHIER : api/upload-product.js (MISE À JOUR — ajout vérification du token)
+// ============================================
 import { v2 as cloudinary } from 'cloudinary';
 import admin from 'firebase-admin';
 import formidable from 'formidable';
 import fs from 'fs';
 
-// Empêche Vercel de parser le body automatiquement (on gère nous-mêmes le multipart/form-data pour l'upload d'image)
 export const config = {
     api: {
         bodyParser: false,
     },
 };
 
-// Configuration Cloudinary (les clés viennent des variables d'environnement, jamais codées en dur)
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// Initialisation Firebase Admin (une seule fois, réutilisée entre les appels)
 if (!admin.apps.length) {
     const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
     admin.initializeApp({
@@ -30,6 +30,21 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Méthode non autorisée' });
     }
+
+    // ---- Vérification de l'authentification (NOUVEAU) ----
+    const authHeader = req.headers.authorization || '';
+    const token = authHeader.startsWith('Bearer ') ? authHeader.split('Bearer ')[1] : null;
+
+    if (!token) {
+        return res.status(401).json({ error: 'Non authentifié' });
+    }
+
+    try {
+        await admin.auth().verifyIdToken(token);
+    } catch (err) {
+        return res.status(401).json({ error: 'Session invalide, reconnectez-vous' });
+    }
+    // --------------------------------------------------------
 
     try {
         const form = formidable({ multiples: false });
@@ -46,15 +61,12 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: 'Aucune image reçue' });
         }
 
-        // Upload de l'image vers Cloudinary
         const uploadResult = await cloudinary.uploader.upload(imageFile.filepath, {
             folder: 'market-shop/products',
         });
 
-        // Nettoyage du fichier temporaire
         fs.unlinkSync(imageFile.filepath);
 
-        // Enregistrement du produit dans Firestore
         const docRef = await db.collection('products').add({
             nom: fields.nom?.[0] || fields.nom || '',
             description: fields.description?.[0] || fields.description || '',
@@ -74,4 +86,4 @@ export default async function handler(req, res) {
         console.error('Erreur upload-product:', error);
         return res.status(500).json({ error: 'Erreur serveur lors de l\'ajout du produit' });
     }
-          }
+}
