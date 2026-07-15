@@ -1,0 +1,25 @@
+// ============================================
+// FICHIER : vercel.json (nouveau ou à compléter s'il existe déjà, à la racine)
+// ============================================
+{
+  "headers": [
+    {
+      "source": "/gestion-marketshop-x7k2.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
+}
