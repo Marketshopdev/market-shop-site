@@ -3,108 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Market Shop</title>
+    <title>Contact & Commande | Market Shop</title>
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a192f">
+    <!-- Liens vers les styles -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/components.css">
-    <!-- Manifest PWA -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0a192f">
-
-<!-- Enregistrement du Service Worker (à placer avant la fermeture de </body>) -->
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js');
-        });
-    }
-</script>
-    
 </head>
 <body>
 
+    <!-- EN-TÊTE -->
     <header>
-        <div class="logo">
-            <a href="index.html"><img src="img/logo.png" alt="Logo Market Shop"></a>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./img/logo.png" alt="Logo Market Shop">
+                </a>
+            </div>
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="about.html" class="nav-link">À propos</a></li>
+                    <li><a href="products.html" class="nav-link">Produits</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Galerie</a></li>
+                    <li><a href="contact.html" class="nav-link active contact-btn">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="products.html">Produits</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="gallery.html">Galerie</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
-        <!-- ========================================== -->
-        <!-- DEBUT : SECTION CONTACT                    -->
-        <!-- ========================================== -->
+        <!-- SECTION CONTACT & COMMANDE -->
         <section class="contact-section">
-            <h1 class="section-title">Contactez-nous</h1>
-            
+            <h1 class="section-title">Contact & Commandes</h1>
+            <p class="contact-subtitle">Remplissez le formulaire ci-dessous pour passer votre commande ou nous poser une question. Vous serez redirigé instantanément sur notre WhatsApp pour finaliser l'échange !</p>
+
             <div class="contact-container">
-                <!-- Infos de contact -->
-                <div class="contact-info">
-                    <h3>Nos Coordonnées</h3>
-                    <p>Une question ? Un projet ? Nous sommes à votre écoute.</p>
-                    <div class="info-item">
-                        <p><strong>Appelez-nous :</strong></p>
-                        <a href="tel:+22879499501">+228 79 49 95 01</a><br>
-                        <a href="tel:+22891719533">+228 91 71 95 33</a>
+                <form id="whatsappForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Votre Nom Complet</label>
+                        <input type="text" id="name" placeholder="Ex: Jean Lawson" required>
                     </div>
-                </div>
 
-                <!-- Formulaire -->
-                <div class="contact-form">
-                    <form action="#" method="POST">
-                        <label for="name">Nom complet</label>
-                        <input type="text" id="name" name="name" required>
+                    <div class="form-group">
+                        <label for="phone">Votre Numéro WhatsApp</label>
+                        <input type="tel" id="phone" placeholder="Ex: +228 90 00 00 00" required>
+                    </div>
 
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="form-group">
+                        <label for="product">Produit ou Service souhaité (Optionnel)</label>
+                        <input type="text" id="product" placeholder="Ex: Nom de l'article à acheter">
+                    </div>
 
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                    <div class="form-group">
+                        <label for="message">Votre Message / Détails de livraison</label>
+                        <textarea id="message" rows="5" placeholder="Indiquez ici vos questions ou vos détails de livraison..." required></textarea>
+                    </div>
 
-                        <button type="submit" class="btn-orange">Envoyer le message</button>
-                    </form>
-                </div>
+                    <button type="submit" class="btn-submit">📱 Envoyer sur WhatsApp</button>
+                </form>
             </div>
         </section>
-        <!-- ========================================== -->
-        <!-- FIN : SECTION CONTACT                      -->
-        <!-- ========================================== -->
     </main>
 
+    <!-- PIED DE PAGE -->
     <footer>
         <div class="footer-container">
             <div class="footer-info">
                 <h3>MARKET SHOP</h3>
-                <p>Tout ce dont vous avez besoin, au meilleur prix.</p>
+                <p>Tout ce dont vous avez besoin, au meilleur prix. Votre satisfaction est notre priorité.</p>
             </div>
             <div class="footer-links">
                 <h4>Liens Rapides</h4>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="about.html">À propos</a></li>
+                    <li><a href="products.html">Produits</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
-                <h4>Contact</h4>
+                <h4>Contactez-nous</h4>
+                <p>Besoin d'aide ? Appelez-nous :</p>
                 <p><a href="tel:+22879499501">+228 79 49 95 01</a></p>
                 <p><a href="tel:+22891719533">+228 91 71 95 33</a></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Market Shop. Développé par DJ PADESCO / Padesco Digital Studio</p>
+            <p>&copy; 2026 Market Shop. Tous droits réservés. | Développé par DJ PADESCO</p>
         </div>
     </footer>
 
     <script src="./js/main.js" defer></script>
 </body>
-                          </html>
-  
+    </html>
+                                                              
