@@ -1042,3 +1042,67 @@ footer {
 .gallery-item {
     cursor: pointer;
     }
+
+/* ========================================== */
+/* CONTACT - CARTES RAPIDES                   */
+/* ========================================== */
+.contact-quick-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.contact-quick-card {
+    background-color: #0d1f3d;
+    border: 1px solid #1a2a40;
+    border-radius: 10px;
+    padding: 25px 15px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-quick-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--btn-orange);
+}
+
+.contact-quick-icon {
+    font-size: 2em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.contact-quick-card h3 {
+    color: var(--text-white);
+    font-size: 1.05em;
+    margin-bottom: 5px;
+}
+
+.contact-quick-card p {
+    color: var(--btn-orange);
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+/* ========================================== */
+/* CARTE GOOGLE MAPS                          */
+/* ========================================== */
+.map-section {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1a2a40;
+}
+
+.map-address {
+    color: #8892b0;
+    margin-top: 15px;
+    }
