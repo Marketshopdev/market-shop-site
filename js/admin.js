@@ -1,8 +1,9 @@
-// ============================================
-// FICHIER : js/admin.js (nouveau)
-// ============================================
 document.addEventListener('DOMContentLoaded', () => {
     const auth = firebase.auth();
+
+    // ---- Sécurité : la session ne survit JAMAIS à la fermeture du navigateur ----
+    // (contrairement au comportement par défaut de Firebase qui reste connecté indéfiniment)
+    auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
 
     const loginScreen = document.getElementById('loginScreen');
     const adminScreen = document.getElementById('adminScreen');
@@ -14,15 +15,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('submitBtn');
     const formMessage = document.getElementById('formMessage');
 
+    // ---- Déconnexion automatique après 10 minutes d'inactivité ----
+    let inactivityTimer;
+    const INACTIVITY_LIMIT = 10 * 60 * 1000; // 10 minutes
+
+    function resetInactivityTimer() {
+        clearTimeout(inactivityTimer);
+        if (auth.currentUser) {
+            inactivityTimer = setTimeout(() => {
+                auth.signOut();
+                alert('Session expirée pour inactivité. Reconnectez-vous.');
+            }, INACTIVITY_LIMIT);
+        }
+    }
+
+    ['click', 'keydown', 'touchstart', 'scroll'].forEach(evt => {
+        document.addEventListener(evt, resetInactivityTimer);
+    });
+
     // ---- Gestion de l'état de connexion ----
     auth.onAuthStateChanged(user => {
         if (user) {
             loginScreen.style.display = 'none';
             adminScreen.style.display = 'block';
             adminEmailEl.textContent = user.email;
+            resetInactivityTimer();
         } else {
             loginScreen.style.display = 'block';
             adminScreen.style.display = 'none';
+            clearTimeout(inactivityTimer);
         }
     });
 
