@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos Services | Market Shop</title>
-    <!-- Manifest PWA -->
+    <meta name="description" content="Livraison rapide, support client dédié, achat sécurisé : découvrez tous les services Market Shop.">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0a192f">
-    <!-- Liens vers les styles -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/components.css">
 </head>
 <body>
 
-    <!-- ========================================== -->
-    <!-- EN-TÊTE DE L'APPLICATION                   -->
-    <!-- ========================================== -->
     <header>
         <div class="header-container">
             <div class="logo">
@@ -35,6 +31,7 @@
                     <li><a href="products.html" class="nav-link">Produits</a></li>
                     <li><a href="services.html" class="nav-link active">Services</a></li>
                     <li><a href="gallery.html" class="nav-link">Galerie</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
                     <li><a href="contact.html" class="nav-link contact-btn">Contact</a></li>
                 </ul>
             </nav>
@@ -42,49 +39,83 @@
     </header>
 
     <main>
-        <!-- ========================================== -->
-        <!-- DEBUT : SECTION SERVICES                   -->
-        <!-- ========================================== -->
+        <section class="page-intro">
+            <span class="hero-tag">Ce que nous offrons</span>
+            <h1>Nos Services</h1>
+            <p>Au-delà de nos produits, nous vous accompagnons au quotidien avec des prestations sur-mesure pour une expérience d'achat sans stress.</p>
+        </section>
+
         <section class="services-section">
-            <h1 class="section-title">Nos Services</h1>
-            <p class="services-subtitle">Au-delà de nos produits, nous vous accompagnons au quotidien avec des prestations sur-mesure pour une expérience d'achat sans stress.</p>
-            
             <div class="services-grid">
-                <!-- Service 1 : Livraison Rapide -->
                 <div class="service-card">
                     <div class="service-icon">⚡</div>
                     <h3>Livraison Rapide</h3>
                     <p>Nous expédions vos commandes dans les plus brefs délais directement chez vous ou en point relais, en toute sécurité.</p>
+                    <a href="https://wa.me/[TON_NUMERO_WHATSAPP]?text=Bonjour%2C%20je%20voudrais%20des%20infos%20sur%20la%20livraison" class="btn-card" target="_blank">Demander ce service</a>
                 </div>
 
-                <!-- Service 2 : Service Client 24/7 -->
                 <div class="service-card">
                     <div class="service-icon">🤝</div>
                     <h3>Support Client Dédié</h3>
                     <p>Une équipe chaleureuse et réactive est à votre écoute par appel ou WhatsApp pour répondre à toutes vos questions.</p>
+                    <a href="https://wa.me/[TON_NUMERO_WHATSAPP]" class="btn-card" target="_blank">Nous écrire</a>
                 </div>
 
-                <!-- Service 3 : Garantie Qualité -->
                 <div class="service-card">
                     <div class="service-icon">🛡️</div>
                     <h3>Achat 100% Sécurisé</h3>
                     <p>Tous nos produits sont minutieusement testés et vérifiés avant expédition pour vous garantir une satisfaction totale.</p>
+                    <a href="contact.html" class="btn-card">En savoir plus</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Accompagnement Sur-Mesure</h3>
+                    <p>Besoin d'une solution spécifique ? Notre équipe étudie votre demande et vous propose un devis personnalisé.</p>
+                    <a href="contact.html" class="btn-card">Demander un devis</a>
                 </div>
             </div>
         </section>
-        <!-- ========================================== -->
-        <!-- FIN : SECTION SERVICES                     -->
-        <!-- ========================================== -->
+
+        <section class="how-it-works">
+            <h2 class="section-title">Comment ça marche ?</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-number">1</span>
+                    <h3>Vous nous contactez</h3>
+                    <p>Par téléphone, WhatsApp ou via le formulaire de contact.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">2</span>
+                    <h3>Nous étudions votre besoin</h3>
+                    <p>Nous vous proposons le produit ou service le plus adapté.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">3</span>
+                    <h3>Vous recevez votre commande</h3>
+                    <p>Livraison rapide et sécurisée jusqu'à vous.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-final">
+            <h2>Une question sur nos services ?</h2>
+            <p>Notre équipe est disponible pour vous répondre rapidement.</p>
+            <a href="https://wa.me/[TON_NUMERO_WHATSAPP]" class="btn-orange" target="_blank">Discuter sur WhatsApp</a>
+        </section>
     </main>
 
-    <!-- ========================================== -->
-    <!-- PIED DE PAGE / FOOTER                      -->
-    <!-- ========================================== -->
     <footer>
         <div class="footer-container">
             <div class="footer-info">
                 <h3>MARKET SHOP</h3>
                 <p>Tout ce dont vous avez besoin, au meilleur prix. Votre satisfaction est notre priorité.</p>
+                <div class="footer-socials">
+                    <a href="[LIEN_FACEBOOK]" target="_blank" aria-label="Facebook">📘</a>
+                    <a href="[LIEN_INSTAGRAM]" target="_blank" aria-label="Instagram">📸</a>
+                    <a href="[LIEN_TIKTOK]" target="_blank" aria-label="TikTok">🎵</a>
+                    <a href="[LIEN_YOUTUBE]" target="_blank" aria-label="YouTube">▶️</a>
+                </div>
             </div>
             <div class="footer-links">
                 <h4>Liens Rapides</h4>
@@ -92,14 +123,18 @@
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="about.html">À propos</a></li>
                     <li><a href="products.html">Produits</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
                 <h4>Contactez-nous</h4>
-                <p>Besoin d'aide ? Appelez-nous :</p>
-                <p><a href="tel:+22879499501">+228 79 49 95 01</a></p>
-                <p><a href="tel:+22891719533">+228 91 71 95 33</a></p>
+                <p>📞 <a href="tel:+22879499501">+228 79 49 95 01</a></p>
+                <p>📞 <a href="tel:+22891719533">+228 91 71 95 33</a></p>
+                <p>✉️ <a href="mailto:[TON_EMAIL]">[TON_EMAIL]</a></p>
+                <p>📍 [TON_ADRESSE]</p>
+                <p>🕒 [HORAIRES_OUVERTURE]</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -107,7 +142,9 @@
         </div>
     </footer>
 
+    <a href="https://wa.me/[TON_NUMERO_WHATSAPP]" class="float-btn whatsapp-btn" target="_blank" aria-label="Contacter sur WhatsApp">💬</a>
+    <a href="tel:+22879499501" class="float-btn call-btn" aria-label="Appeler Market Shop">📞</a>
+
     <script src="./js/main.js" defer></script>
 </body>
-              </html>
-  
+    </html>
