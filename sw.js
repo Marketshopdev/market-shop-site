@@ -1,4 +1,4 @@
-const CACHE_NAME = 'market-shop-v1';
+const CACHE_NAME = 'market-shop-v2'; // ⚠️ toujours changer ce numéro à chaque mise à jour importante
 const ASSETS = [
   '/',
   '/index.html',
@@ -9,17 +9,25 @@ const ASSETS = [
   '/js/main.js'
 ];
 
-// Installation : Mise en cache des fichiers
+// Installation : mise en cache initiale + activation immédiate
 self.addEventListener('install', (event) => {
+  self.skipWaiting(); // force le nouveau Service Worker à s'activer sans attendre
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
 });
 
-// Activation : Nettoyage des anciens caches
+// Activation : nettoyage des anciens caches + prise de contrôle immédiate
 self.addEventListener('activate', (event) => {
-  event.waitUntil(caches.keys().then((keys) => Promise.all(keys.map(k => k !== CACHE_NAME && caches.delete(k)))));
+  event.waitUntil(
+    Promise.all([
+      caches.keys().then((keys) => Promise.all(keys.map(k => k !== CACHE_NAME && caches.delete(k)))),
+      self.clients.claim() // prend le contrôle des pages déjà ouvertes, sans attendre un rechargement
+    ])
+  );
 });
 
-// Fetch : Interception des requêtes pour servir le contenu du cache
+// Fetch : réseau en priorité pour les pages HTML (jamais de contenu périmé), cache en secours seulement si hors-ligne
 self.addEventListener('fetch', (event) => {
-  event.respondWith(caches.match(event.request).then((response) => response || fetch(event.request)));
+  event.respondWith(
+    fetch(event.request).catch(() => caches.match(event.request))
+  );
 });
