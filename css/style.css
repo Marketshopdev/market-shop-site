@@ -1214,3 +1214,65 @@ footer {
 /* ========================================== */
 /* FIN : ETATS DE CHARGEMENT (page Produits)  */
 /* ========================================== */
+
+/* ========================================== */
+/* DEBUT : SECTION PROMOTIONS ACCUEIL         */
+/* ========================================== */
+.promo-section {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+}
+
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.promo-card {
+    background-color: #0d1f3d;
+    border: 1px solid #1a2a40;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.promo-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--btn-orange);
+}
+
+.promo-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.promo-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.promo-body h3 {
+    color: var(--text-white);
+    margin-bottom: 8px;
+}
+
+.promo-body p {
+    color: #8892b0;
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.promo-price {
+    display: block;
+    color: var(--btn-orange);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+/* ========================================== */
+/* FIN : SECTION PROMOTIONS ACCUEIL           */
+/* ========================================== */
