@@ -3,52 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Market Shop | Accueil</title>
-    <!-- ========================================== -->
-    <!-- LIENS VERS LES STYLES (DÉBUT)              -->
-    <!-- ========================================== -->
+    <title>Market Shop | Accueil - Tout ce dont vous avez besoin, au meilleur prix</title>
+    <meta name="description" content="Market Shop, votre boutique de confiance pour des produits de qualité au meilleur prix. Découvrez nos offres, contactez-nous facilement.">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/components.css">
-    <!-- ========================================== -->
-    <!-- LIENS VERS LES STYLES (FIN)                -->
-    <!-- ========================================== -->
-
-    <!-- Manifest PWA -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0a192f">
-
-<!-- Enregistrement du Service Worker (à placer avant la fermeture de </body>) -->
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js');
-        });
-    }
-</script>
-    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-        <!-- ========================================== -->
-    <!-- DEBUT : EN-TÊTE DE L'APPLICATION           -->
-    <!-- ========================================== -->
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="header-container">
-            <!-- Logo aligné à gauche -->
             <div class="logo">
                 <a href="index.html">
                     <img src="./img/logo.png" alt="Logo Market Shop">
                 </a>
             </div>
 
-            <!-- Bouton Hamburger (Visible uniquement sur mobile) -->
             <button class="menu-toggle" aria-label="Ouvrir le menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
 
-            <!-- Menu de navigation -->
             <nav class="nav-menu">
                 <ul>
                     <li><a href="index.html" class="nav-link active">Accueil</a></li>
@@ -56,98 +36,142 @@
                     <li><a href="products.html" class="nav-link">Produits</a></li>
                     <li><a href="services.html" class="nav-link">Services</a></li>
                     <li><a href="gallery.html" class="nav-link">Galerie</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
                     <li><a href="contact.html" class="nav-link contact-btn">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <!-- ========================================== -->
-    <!-- FIN : EN-TÊTE DE L'APPLICATION             -->
-    <!-- ========================================== -->
-    
 
     <main>
-        <!-- ========================================== -->
-        <!-- DEBUT : BANNIÈRE PRÉSENTATION              -->
-        <!-- ========================================== -->
+        <!-- ===== HERO ===== -->
         <section class="hero-banner">
-            <h1>Market Shop</h1>
-            <p>Market Shop est une entreprise spécialisée dans la vente de produits de qualité, offrant à ses clients une expérience d'achat simple, rapide et sécurisée. Nous proposons une large gamme de produits à des prix compétitifs, avec un service client fiable et un engagement constant envers la satisfaction de notre clientèle.</p>
-            <a href="products.html" class="btn-orange">Découvrir nos offres</a>
+            <div class="hero-content">
+                <span class="hero-tag">Bienvenue chez Market Shop</span>
+                <h1>Tout ce dont vous avez besoin,<br>au meilleur prix.</h1>
+                <p>Market Shop vous propose une large gamme de produits et services de qualité, avec un accompagnement personnalisé et un service client à votre écoute.</p>
+                <div class="hero-buttons">
+                    <a href="products.html" class="btn-orange">Découvrir nos produits</a>
+                    <a href="contact.html" class="btn-outline">Nous contacter</a>
+                </div>
+            </div>
         </section>
-        <!-- ========================================== -->
-        <!-- FIN : BANNIÈRE PRÉSENTATION                -->
-        <!-- ========================================== -->
 
-        <!-- ========================================== -->
-        <!-- DEBUT : SECTION PRODUITS VEDETTES          -->
-        <!-- ========================================== -->
+        <!-- ===== POURQUOI NOUS CHOISIR ===== -->
+        <section class="why-us">
+            <h2 class="section-title">Pourquoi choisir Market Shop ?</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">✅</div>
+                    <h3>Qualité garantie</h3>
+                    <p>Des produits sélectionnés avec soin pour répondre à vos exigences.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💰</div>
+                    <h3>Meilleurs prix</h3>
+                    <p>Des tarifs compétitifs sans compromis sur la qualité.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🚀</div>
+                    <h3>Service rapide</h3>
+                    <p>Une équipe réactive pour répondre à toutes vos demandes.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🤝</div>
+                    <h3>Confiance</h3>
+                    <p>Des clients satisfaits qui nous recommandent.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PRODUITS VEDETTES ===== -->
         <section class="featured-products">
             <h2 class="section-title">Nos Produits Vedettes</h2>
             <div class="products-grid">
-                
-                <!-- Carte Produit 1 -->
                 <div class="product-card">
                     <div class="product-icon">📦</div>
                     <h3>Produit Standard</h3>
-                    <p>Une description courte, claire et efficace pour capter l'attention du client immédiatement.</p>
+                    <p>Une description claire et efficace pour capter l'attention du client.</p>
                     <span class="product-price">15 000 F CFA</span>
                     <a href="products.html" class="btn-card">En savoir plus</a>
                 </div>
-
-                <!-- Carte Produit 2 -->
                 <div class="product-card">
                     <div class="product-icon">⚡</div>
                     <h3>Produit Premium</h3>
-                    <p>Le meilleur choix de notre catalogue pour une performance et une qualité haut de gamme.</p>
+                    <p>Le meilleur choix de notre catalogue, qualité haut de gamme.</p>
                     <span class="product-price">25 000 F CFA</span>
                     <a href="products.html" class="btn-card">En savoir plus</a>
                 </div>
-
-                <!-- Carte Produit 3 -->
                 <div class="product-card">
                     <div class="product-icon">💎</div>
                     <h3>Service Sur-Mesure</h3>
-                    <p>Bénéficiez d'un accompagnement personnalisé par nos experts pour tous vos besoins.</p>
+                    <p>Un accompagnement personnalisé par nos experts.</p>
                     <span class="product-price">Sur Devis</span>
                     <a href="contact.html" class="btn-card">Nous contacter</a>
                 </div>
-
             </div>
         </section>
-        <!-- ========================================== -->
-        <!-- FIN : SECTION PRODUITS VEDETTES            -->
-        <!-- ========================================== -->
+
+        <!-- ===== TEMOIGNAGES ===== -->
+        <section class="testimonials">
+            <h2 class="section-title">Ce que disent nos clients</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Un service rapide et des produits de très bonne qualité. Je recommande vivement !"</p>
+                    <span class="testimonial-author">— Aminata K.</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Prix compétitifs et équipe très professionnelle. Market Shop est devenu mon fournisseur de confiance."</p>
+                    <span class="testimonial-author">— Kossi M.</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Livraison rapide, contact facile via WhatsApp. Exactement ce que je cherchais."</p>
+                    <span class="testimonial-author">— Sarah T.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA FINAL ===== -->
+        <section class="cta-final">
+            <h2>Prêt à passer commande ?</h2>
+            <p>Contactez-nous dès maintenant, notre équipe vous répond rapidement.</p>
+            <a href="https://wa.me/[TON_NUMERO_WHATSAPP]" class="btn-orange" target="_blank">Discuter sur WhatsApp</a>
+        </section>
     </main>
 
-    <!-- ========================================== -->
-    <!-- DEBUT : PIED DE PAGE / FOOTER              -->
-    <!-- ========================================== -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-container">
-            <!-- Bloc Info -->
             <div class="footer-info">
                 <h3>MARKET SHOP</h3>
                 <p>Tout ce dont vous avez besoin, au meilleur prix. Votre satisfaction est notre priorité.</p>
+                <div class="footer-socials">
+                    <a href="[LIEN_FACEBOOK]" target="_blank" aria-label="Facebook">📘</a>
+                    <a href="[LIEN_INSTAGRAM]" target="_blank" aria-label="Instagram">📸</a>
+                    <a href="[LIEN_TIKTOK]" target="_blank" aria-label="TikTok">🎵</a>
+                    <a href="[LIEN_YOUTUBE]" target="_blank" aria-label="YouTube">▶️</a>
+                </div>
             </div>
 
-            <!-- Bloc Liens -->
             <div class="footer-links">
                 <h4>Liens Rapides</h4>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="about.html">À propos</a></li>
                     <li><a href="products.html">Produits</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
 
-            <!-- Bloc Contacts Réels -->
             <div class="footer-contact">
                 <h4>Contactez-nous</h4>
-                <p>Besoin d'aide ? Appelez-nous :</p>
-                <p><a href="tel:+22879499501">+228 79 49 95 01</a></p>
-                <p><a href="tel:+22891719533">+228 91 71 95 33</a></p>
+                <p>📞 <a href="tel:+22879499501">+228 79 49 95 01</a></p>
+                <p>📞 <a href="tel:+22891719533">+228 91 71 95 33</a></p>
+                <p>✉️ <a href="mailto:[TON_EMAIL]">[TON_EMAIL]</a></p>
+                <p>📍 [TON_ADRESSE]</p>
+                <p>🕒 [HORAIRES_OUVERTURE]</p>
             </div>
         </div>
 
@@ -155,17 +179,11 @@
             <p>&copy; 2026 Market Shop. Tous droits réservés. | Développé par DJ PADESCO / Padesco Digital Studio</p>
         </div>
     </footer>
-    <!-- ========================================== -->
-    <!-- FIN : PIED DE PAGE / FOOTER                -->
-    <!-- ========================================== -->
 
-    <!-- ========================================== -->
-    <!-- CHARGEMENT DES SCRIPTS JS (DÉBUT)          -->
-    <!-- ========================================== -->
+    <!-- ===== BOUTONS FLOTTANTS WHATSAPP + APPEL ===== -->
+    <a href="https://wa.me/[TON_NUMERO_WHATSAPP]" class="float-btn whatsapp-btn" target="_blank" aria-label="Contacter sur WhatsApp">💬</a>
+    <a href="tel:+22879499501" class="float-btn call-btn" aria-label="Appeler Market Shop">📞</a>
+
     <script src="./js/main.js" defer></script>
-    <!-- ========================================== -->
-    <!-- CHARGEMENT DES SCRIPTS JS (FIN)            -->
-    <!-- ========================================== -->
-
 </body>
-</html>
+                        </html>
