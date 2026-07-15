@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./css/components.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0a192f">
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
@@ -38,47 +40,9 @@
         </section>
 
         <section class="products-section">
-            <div class="products-grid">
-
-                <article class="product-card">
-                    <img src="./img/products/produit-1.jpg" alt="[NOM_PRODUIT_1]" loading="lazy">
-                    <div class="product-body">
-                        <h3>[NOM_PRODUIT_1]</h3>
-                        <p class="product-desc">[DESCRIPTION_COURTE_DU_PRODUIT_1]</p>
-                        <span class="product-price">15 000 F CFA</span>
-                        <div class="product-actions">
-                            <a href="https://wa.me/[TON_NUMERO_WHATSAPP]?text=Bonjour%2C%20je%20suis%20intéressé%20par%20[NOM_PRODUIT_1]" class="btn-card" target="_blank">Demander un devis</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="product-card">
-                    <img src="./img/products/produit-2.jpg" alt="[NOM_PRODUIT_2]" loading="lazy">
-                    <div class="product-body">
-                        <h3>[NOM_PRODUIT_2]</h3>
-                        <p class="product-desc">[DESCRIPTION_COURTE_DU_PRODUIT_2]</p>
-                        <span class="product-price">25 000 F CFA</span>
-                        <div class="product-actions">
-                            <a href="https://wa.me/[TON_NUMERO_WHATSAPP]?text=Bonjour%2C%20je%20suis%20intéressé%20par%20[NOM_PRODUIT_2]" class="btn-card" target="_blank">Demander un devis</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="product-card">
-                    <img src="./img/products/produit-3.jpg" alt="[NOM_PRODUIT_3]" loading="lazy">
-                    <div class="product-body">
-                        <h3>[NOM_PRODUIT_3]</h3>
-                        <p class="product-desc">[DESCRIPTION_COURTE_DU_PRODUIT_3]</p>
-                        <span class="product-price">Sur Devis</span>
-                        <div class="product-actions">
-                            <a href="contact.html" class="btn-card">Nous contacter</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Duplique ce bloc <article> pour chaque produit supplémentaire -->
-
-            </div>
+    <div class="products-grid" id="productsGrid">
+        <p class="loading-state">Chargement des produits...</p>
+    </div>
         </section>
 
         <section class="cta-final">
@@ -129,5 +93,7 @@
     <a href="tel:+22879499501" class="float-btn call-btn" aria-label="Appeler Market Shop">📞</a>
 
     <script src="./js/main.js" defer></script>
+    <script src="./js/firebase-config.js"></script>
+<script src="./js/products.js" defer></script>
 </body>
                             </html>
