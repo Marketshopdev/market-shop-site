@@ -1,0 +1,96 @@
+// ============================================
+// FICHIER : admin.html (nouveau, à la racine du projet)
+// ============================================
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration | Market Shop</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./img/logo.png" alt="Logo Market Shop">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== ECRAN DE CONNEXION ===== -->
+        <section class="page-intro" id="loginScreen">
+            <span class="hero-tag">Espace privé</span>
+            <h1>Connexion Administration</h1>
+            <div class="contact-container" style="max-width: 420px; margin: 30px auto;">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="votre email">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Mot de passe</label>
+                    <input type="password" id="loginPassword" placeholder="votre mot de passe">
+                </div>
+                <button id="loginBtn" class="btn-submit">Se connecter</button>
+                <p id="loginError" style="color:#ff7f50; margin-top:15px; display:none;"></p>
+            </div>
+        </section>
+
+        <!-- ===== ECRAN ADMIN (caché tant que non connecté) ===== -->
+        <section class="page-intro" id="adminScreen" style="display:none;">
+            <span class="hero-tag">Espace privé</span>
+            <h1>Ajouter un produit</h1>
+            <p>Connecté en tant que <strong id="adminEmail"></strong> — <a href="#" id="logoutBtn" style="color:#ff7f50;">Se déconnecter</a></p>
+
+            <div class="contact-container" style="max-width: 600px; margin: 30px auto;">
+                <form id="productForm">
+                    <div class="form-group">
+                        <label for="nom">Nom du produit / service</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="prix">Prix (laisser vide pour "Sur Devis")</label>
+                        <input type="text" id="prix" name="prix" placeholder="Ex: 15000">
+                    </div>
+                    <div class="form-group">
+                        <label for="emplacement">Où afficher ce contenu ?</label>
+                        <select id="emplacement" name="emplacement" style="width:100%; padding:12px; background-color:#0a192f; border:1px solid #1a2a40; border-radius:8px; color:#fff;">
+                            <option value="produits">Page Produits</option>
+                            <option value="accueil-haut">Accueil (mise en avant)</option>
+                            <option value="services">Page Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Photo</label>
+                        <input type="file" id="image" name="image" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn-submit" id="submitBtn">Ajouter le produit</button>
+                    <p id="formMessage" style="margin-top:15px; display:none;"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Market Shop. Espace administration.</p>
+        </div>
+    </footer>
+
+    <script src="./js/firebase-config.js"></script>
+    <script src="./js/admin.js" defer></script>
+</body>
+  </html>
