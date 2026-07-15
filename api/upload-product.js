@@ -1,4 +1,4 @@
-        / ============================================
+ // ============================================
 // FICHIER : api/upload-product.js (MISE À JOUR — ajout vérification du token)
 // ============================================
 import { v2 as cloudinary } from 'cloudinary';
