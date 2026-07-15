@@ -1,6 +1,3 @@
-// ============================================
-// FICHIER : vercel.json (nouveau ou à compléter s'il existe déjà, à la racine)
-// ============================================
 {
   "headers": [
     {
