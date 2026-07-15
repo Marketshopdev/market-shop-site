@@ -1166,3 +1166,37 @@ footer {
     color: #8892b0;
     line-height: 1.7;
                                   }
+/* ========================================== */
+/* RESUME NOTE GLOBALE                        */
+/* ========================================== */
+.rating-summary {
+    text-align: center;
+    margin: 0 auto 60px auto;
+}
+
+.rating-score {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--btn-orange);
+}
+
+.rating-score span {
+    font-size: 0.4em;
+    color: #8892b0;
+    font-weight: 400;
+}
+
+.rating-stars {
+    font-size: 1.3em;
+    margin: 10px 0;
+}
+
+.rating-summary p {
+    color: #8892b0;
+    font-size: 0.9em;
+}
+
+.testimonial-stars {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
