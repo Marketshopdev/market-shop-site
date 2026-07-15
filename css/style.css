@@ -486,6 +486,105 @@ header {
 /* FIN : PAGE PRODUITS                        */
 /* ========================================== */
 
+/* ========================================== */
+/* DEBUT : PAGE GALERIE                       */
+/* ========================================== */
+.gallery-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.gallery-subtitle {
+    color: #8892b0;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Grille flexible s'adaptant de 1 à 4 colonnes selon l'écran */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden; /* Pour que les images ne dépassent pas des bords arrondis */
+    aspect-ratio: 1 / 1; /* Force les images à être parfaitement carrées comme sur Instagram */
+    border: 1px solid #1a2a40;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recadre l'image proprement sans la déformer */
+    transition: transform 0.5s ease;
+}
+
+/* Le volet sombre avec le texte */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.85); /* Fond sombre transparent */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0; /* Caché par défaut */
+    transition: opacity 0.3s ease;
+    text-align: center;
+}
+
+.gallery-overlay h3 {
+    color: var(--btn-orange);
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.gallery-overlay p {
+    color: var(--text-white);
+    font-size: 0.9em;
+    transform: translateY(20px);
+    transition: transform 0.3s ease 0.1s;
+}
+
+/* Effets au survol / focus tactile */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Zoom arrière de l'image */
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1; /* Révèle le texte */
+}
+
+.gallery-item:hover .gallery-overlay h3,
+.gallery-item:hover .gallery-overlay p {
+    transform: translateY(0); /* Fait remonter doucement les textes */
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Légèrement plus petites cartes sur très petit écran */
+        gap: 15px;
+    }
+}
+/* ========================================== */
+/* FIN : PAGE GALERIE                         */
+/* ========================================== */
+
 
 /* ========================================== */
 /* DEBUT : PIED DE PAGE / FOOTER              */
