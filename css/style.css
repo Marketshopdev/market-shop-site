@@ -874,6 +874,20 @@ footer {
     }
 }
 
+.share-btn {
+    right: 20px;
+    bottom: 90px;
+    background-color: #0a4d8f;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .share-btn {
+        bottom: 160px;
+    }
+}
+
 /* ========================================== */
 /* INTRO DE PAGE (réutilisable sur toutes les pages) */
 /* ========================================== */
