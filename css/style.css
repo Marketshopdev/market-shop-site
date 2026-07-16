@@ -916,7 +916,8 @@ footer {
 .products-section .product-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: #0a192f;
     display: block;
 }
 
@@ -1245,8 +1246,9 @@ footer {
 
 .promo-card img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: 220px;
+    object-fit: contain;
+    background-color: #0a192f;
     display: block;
 }
 
