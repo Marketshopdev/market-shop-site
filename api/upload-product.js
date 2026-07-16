@@ -67,7 +67,7 @@ export default async function handler(req, res) {
         const docRef = await db.collection('products').add({
             nom: fields.nom?.[0] || fields.nom || '',
             description: fields.description?.[0] || fields.description || '',
-            prix: fields.prix?.[0] || fields.prix || '',
+            prix: (fields.prix?.[0] || fields.prix || '').trim(),
             imageUrl: uploadResult.secure_url,
             emplacement: fields.emplacement?.[0] || fields.emplacement || 'produits',
             createdAt: admin.firestore.FieldValue.serverTimestamp(),
