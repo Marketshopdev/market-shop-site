@@ -9,38 +9,26 @@ export const config = {
     },
 };
 
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+if (!admin.apps.length) {
+    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+    });
+}
+const db = admin.firestore();
+
 export default async function handler(req, res) {
-
-    // Diagnostic temporaire : visite cette route en GET dans le navigateur pour vérifier
-    // que les 4 variables d'environnement sont bien présentes, sans jamais afficher leur contenu
-    if (req.method === 'GET') {
-        return res.status(200).json({
-            CLOUDINARY_CLOUD_NAME: Boolean(process.env.CLOUDINARY_CLOUD_NAME),
-            CLOUDINARY_API_KEY: Boolean(process.env.CLOUDINARY_API_KEY),
-            CLOUDINARY_API_SECRET: Boolean(process.env.CLOUDINARY_API_SECRET),
-            FIREBASE_SERVICE_ACCOUNT_present: Boolean(process.env.FIREBASE_SERVICE_ACCOUNT),
-            FIREBASE_SERVICE_ACCOUNT_length: process.env.FIREBASE_SERVICE_ACCOUNT ? process.env.FIREBASE_SERVICE_ACCOUNT.length : 0,
-        });
-    }
-
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Méthode non autorisée' });
     }
 
-    cloudinary.config({
-        cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-        api_key: process.env.CLOUDINARY_API_KEY,
-        api_secret: process.env.CLOUDINARY_API_SECRET,
-    });
-
-    if (!admin.apps.length) {
-        const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-        admin.initializeApp({
-            credential: admin.credential.cert(serviceAccount),
-        });
-    }
-    const db = admin.firestore();
-
+    // ---- Vérification de l'authentification (NOUVEAU) ----
     const authHeader = req.headers.authorization || '';
     const token = authHeader.startsWith('Bearer ') ? authHeader.split('Bearer ')[1] : null;
 
@@ -53,6 +41,7 @@ export default async function handler(req, res) {
     } catch (err) {
         return res.status(401).json({ error: 'Session invalide, reconnectez-vous' });
     }
+    // --------------------------------------------------------
 
     try {
         const form = formidable({ multiples: false });
@@ -94,4 +83,4 @@ export default async function handler(req, res) {
         console.error('Erreur upload-product:', error);
         return res.status(500).json({ error: 'Erreur serveur lors de l\'ajout du produit' });
     }
-         }
+                                                              }
