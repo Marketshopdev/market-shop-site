@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const auth = firebase.auth();
-
-    // ---- Sécurité : la session ne survit JAMAIS à la fermeture du navigateur ----
-    // (contrairement au comportement par défaut de Firebase qui reste connecté indéfiniment)
     auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
 
     const loginScreen = document.getElementById('loginScreen');
@@ -14,10 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const productForm = document.getElementById('productForm');
     const submitBtn = document.getElementById('submitBtn');
     const formMessage = document.getElementById('formMessage');
+    const productsList = document.getElementById('productsList');
+    const listLoading = document.getElementById('listLoading');
 
-    // ---- Déconnexion automatique après 10 minutes d'inactivité ----
     let inactivityTimer;
-    const INACTIVITY_LIMIT = 10 * 60 * 1000; // 10 minutes
+    const INACTIVITY_LIMIT = 10 * 60 * 1000;
 
     function resetInactivityTimer() {
         clearTimeout(inactivityTimer);
@@ -33,13 +31,89 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener(evt, resetInactivityTimer);
     });
 
-    // ---- Gestion de l'état de connexion ----
+    // Affiche la liste des produits, avec un bouton de suppression pour chacun
+    async function loadProducts() {
+        listLoading.style.display = 'block';
+        productsList.innerHTML = '';
+
+        try {
+            const token = await auth.currentUser.getIdToken();
+            const response = await fetch('/api/list-products', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            const result = await response.json();
+
+            listLoading.style.display = 'none';
+
+            if (!result.products || result.products.length === 0) {
+                productsList.innerHTML = '<p style="color:#8892b0;">Aucun produit publié pour le moment.</p>';
+                return;
+            }
+
+            result.products.forEach(p => {
+                const item = document.createElement('div');
+                item.style.cssText = 'display:flex; align-items:center; gap:15px; padding:15px 0; border-bottom:1px solid #1a2a40;';
+                item.innerHTML = `
+                    <img src="${p.imageUrl}" alt="${p.nom}" style="width:60px; height:60px; object-fit:cover; border-radius:8px;">
+                    <div style="flex:1;">
+                        <strong style="color:#fff;">${p.nom}</strong><br>
+                        <span style="color:#8892b0; font-size:0.85em;">${p.emplacement}</span>
+                    </div>
+                    <button data-id="${p.id}" class="delete-product-btn" style="background-color:#ff7f50; color:#fff; border:none; padding:8px 16px; border-radius:6px; cursor:pointer;">Supprimer</button>
+                `;
+                productsList.appendChild(item);
+            });
+
+            // Rattache l'action de suppression à chaque bouton nouvellement créé
+            document.querySelectorAll('.delete-product-btn').forEach(btn => {
+                btn.addEventListener('click', () => handleDelete(btn.dataset.id, btn));
+            });
+
+        } catch (err) {
+            listLoading.textContent = 'Erreur lors du chargement des produits.';
+        }
+    }
+
+    async function handleDelete(id, button) {
+        const confirmed = confirm('Supprimer ce produit définitivement ? Cette action est irréversible.');
+        if (!confirmed) return;
+
+        button.disabled = true;
+        button.textContent = 'Suppression...';
+
+        try {
+            const token = await auth.currentUser.getIdToken();
+            const response = await fetch('/api/delete-product', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id })
+            });
+
+            if (response.ok) {
+                loadProducts();
+            } else {
+                const result = await response.json();
+                alert('Erreur : ' + (result.error || 'suppression impossible'));
+                button.disabled = false;
+                button.textContent = 'Supprimer';
+            }
+        } catch (err) {
+            alert('Erreur réseau lors de la suppression.');
+            button.disabled = false;
+            button.textContent = 'Supprimer';
+        }
+    }
+
     auth.onAuthStateChanged(user => {
         if (user) {
             loginScreen.style.display = 'none';
             adminScreen.style.display = 'block';
             adminEmailEl.textContent = user.email;
             resetInactivityTimer();
+            loadProducts();
         } else {
             loginScreen.style.display = 'block';
             adminScreen.style.display = 'none';
@@ -47,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ---- Connexion ----
     loginBtn.addEventListener('click', () => {
         const email = document.getElementById('loginEmail').value.trim();
         const password = document.getElementById('loginPassword').value;
@@ -61,13 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     });
 
-    // ---- Déconnexion ----
     logoutBtn.addEventListener('click', (e) => {
         e.preventDefault();
         auth.signOut();
     });
 
-    // ---- Envoi du formulaire produit ----
     productForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -88,9 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const response = await fetch('/api/upload-product', {
                 method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                },
+                headers: { 'Authorization': `Bearer ${token}` },
                 body: formData
             });
 
@@ -101,6 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 formMessage.textContent = 'Produit ajouté avec succès !';
                 formMessage.style.display = 'block';
                 productForm.reset();
+                loadProducts();
             } else {
                 throw new Error(result.error || 'Erreur inconnue');
             }
