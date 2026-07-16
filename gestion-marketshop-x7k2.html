@@ -24,31 +24,30 @@
     </header>
 
     <main>
-        <!-- ===== ECRAN DE CONNEXION ===== -->
         <section class="page-intro" id="loginScreen">
             <span class="hero-tag">Espace privé</span>
             <h1>Connexion Administration</h1>
             <div class="contact-container" style="max-width: 420px; margin: 30px auto;">
                 <div class="form-group">
-    <label for="loginEmail">Email</label>
-    <input type="email" id="loginEmail" placeholder="votre email" autocomplete="off" name="admin-user-field">
-</div>
-<div class="form-group">
-    <label for="loginPassword">Mot de passe</label>
-    <input type="password" id="loginPassword" placeholder="votre mot de passe" autocomplete="new-password" name="admin-pass-field">
-</div>
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="votre email" autocomplete="off" name="admin-user-field">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Mot de passe</label>
+                    <input type="password" id="loginPassword" placeholder="votre mot de passe" autocomplete="new-password" name="admin-pass-field">
+                </div>
                 <button id="loginBtn" class="btn-submit">Se connecter</button>
                 <p id="loginError" style="color:#ff7f50; margin-top:15px; display:none;"></p>
             </div>
         </section>
 
-        <!-- ===== ECRAN ADMIN (caché tant que non connecté) ===== -->
         <section class="page-intro" id="adminScreen" style="display:none;">
             <span class="hero-tag">Espace privé</span>
-            <h1>Ajouter un produit</h1>
+            <h1>Gestion des produits</h1>
             <p>Connecté en tant que <strong id="adminEmail"></strong> — <a href="#" id="logoutBtn" style="color:#ff7f50;">Se déconnecter</a></p>
 
             <div class="contact-container" style="max-width: 600px; margin: 30px auto;">
+                <h2 style="color:#fff; margin-top:0;">Ajouter un produit</h2>
                 <form id="productForm">
                     <div class="form-group">
                         <label for="nom">Nom du produit / service</label>
@@ -78,6 +77,12 @@
                     <p id="formMessage" style="margin-top:15px; display:none;"></p>
                 </form>
             </div>
+
+            <div class="contact-container" style="max-width: 700px; margin: 30px auto;">
+                <h2 style="color:#fff; margin-top:0;">Produits publiés</h2>
+                <p id="listLoading" style="color:#8892b0;">Chargement...</p>
+                <div id="productsList"></div>
+            </div>
         </section>
     </main>
 
@@ -90,4 +95,4 @@
     <script src="./js/firebase-config.js"></script>
     <script src="./js/admin.js" defer></script>
 </body>
-  </html>
+                    </html>
