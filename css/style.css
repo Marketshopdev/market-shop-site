@@ -605,6 +605,26 @@ footer {
     font-size: 0.9em;
     color: #8892b0;
 }
+
+.footer-legal-links {
+    margin-top: 10px;
+    font-size: 0.85em;
+}
+
+.footer-legal-links a {
+    color: #8892b0;
+    transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+    color: var(--btn-orange);
+}
+
+.footer-legal-links span {
+    color: #1a2a40;
+    margin: 0 10px;
+}
+
 /* ========================================== */
 /* FIN : PIED DE PAGE / FOOTER                */
 /* ========================================== */
