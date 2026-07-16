@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const shareBtn = document.getElementById('shareBtn');
+document.addEventListener('partialsLoaded', () => {
+    const shareBtn = document.getElementById('footerShareBtn');
     if (!shareBtn) return;
 
     shareBtn.addEventListener('click', async () => {
