@@ -5,4 +5,4 @@ User-agent: *
 Disallow: /gestion-marketshop-x7k2.html
 Disallow: /api/
 
-Sitemap: https://[TON-DOMAINE].com/sitemap.xml
+Sitemap: https://market-shop-site.vercel.app/sitemap.xml
