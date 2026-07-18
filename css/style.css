@@ -1623,3 +1623,5 @@ footer {
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
 }
+
+body.menu-open .float-btn { display: none !important; }
