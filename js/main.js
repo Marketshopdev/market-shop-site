@@ -8,6 +8,7 @@ document.addEventListener('partialsLoaded', () => {
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
     });
 
     // Ferme le menu si l'utilisateur clique sur un lien
@@ -15,6 +16,7 @@ document.addEventListener('partialsLoaded', () => {
         link.addEventListener('click', () => {
             menuToggle.classList.remove('active');
             navMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
         });
     });
 });
