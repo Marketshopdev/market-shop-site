@@ -1,3 +1,15 @@
+// Supprime tout ancien Service Worker et son cache, une fois pour toutes
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+        registrations.forEach(reg => reg.unregister());
+    });
+    if (window.caches) {
+        caches.keys().then(names => {
+            names.forEach(name => caches.delete(name));
+        });
+    }
+}
+
 async function loadPartial(placeholderId, url) {
     const el = document.getElementById(placeholderId);
     if (!el) return;
