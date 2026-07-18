@@ -53,8 +53,8 @@
             <p>Connecté en tant que <strong id="adminEmail"></strong> — <a href="#" id="logoutBtn" class="admin-logout-link">Se déconnecter</a></p>
 
             <div class="contact-container admin-panel">
-                <h2 class="admin-panel-title">Ajouter un produit</h2>
-                <form id="productForm">
+    <h2 class="admin-panel-title" id="formTitle">Ajouter un produit</h2>
+    <form id="productForm">
                     <div class="form-group">
                         <label for="nom">Nom du produit / service</label>
                         <input type="text" id="nom" name="nom" required>
@@ -76,10 +76,12 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="image">Photo</label>
-                        <input type="file" id="image" name="image" accept="image/*" required>
-                    </div>
-                    <button type="submit" class="btn-submit" id="submitBtn">Ajouter le produit</button>
+    <label for="image">Photo</label>
+    <input type="file" id="image" name="image" accept="image/*" required>
+    <small id="imageHint" class="admin-loading-msg"></small>
+</div>
+<button type="submit" class="btn-submit" id="submitBtn">Ajouter le produit</button>
+<button type="button" id="cancelEditBtn" class="btn-outline" style="display:none; margin-top:10px; width:100%;">Annuler la modification</button>
                     <p id="formMessage" class="admin-form-msg"></p>
                 </form>
             </div>
