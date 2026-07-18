@@ -211,6 +211,20 @@ header {
         padding: 100px 24px 24px 24px;
     }
 
+   .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 78%;
+    height: 100vh;
+    background-color: #14294f;
+    backdrop-filter: none;
+    box-shadow: -8px 0 24px rgba(0,0,0,0.45);
+    transition: right 0.4s cubic-bezier(0.1, 0.8, 0.3, 1);
+    padding: 100px 24px 24px 24px;
+    z-index: 1500;
+   }
+   
     .nav-menu.active { right: 0; }
 
     .nav-menu ul {
