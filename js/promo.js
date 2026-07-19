@@ -1,6 +1,3 @@
-// ============================================
-// FICHIER : js/promo.js (nouveau)
-// ============================================
 document.addEventListener('DOMContentLoaded', () => {
     const section = document.getElementById('promoSection');
     const grid = document.getElementById('promoGrid');
@@ -8,14 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     db.collection('products')
         .where('emplacement', '==', 'accueil-haut')
-        .orderBy('createdAt', 'desc')
         .get()
         .then(snapshot => {
-            if (snapshot.empty) return; // rien à afficher, la section reste cachée
+            if (snapshot.empty) return;
+
+            const items = snapshot.docs
+                .map(doc => doc.data())
+                .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
 
             grid.innerHTML = '';
-            snapshot.forEach(doc => {
-                const p = doc.data();
+            items.forEach(p => {
                 const card = document.createElement('article');
                 card.className = 'promo-card';
                 card.innerHTML = `
@@ -30,8 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 grid.appendChild(card);
             });
 
-            section.style.display = 'block'; // révèle la section seulement s'il y a du contenu
+            section.style.display = 'block';
         })
         .catch(err => console.error('Erreur chargement promotions:', err));
 });
-                                                    
