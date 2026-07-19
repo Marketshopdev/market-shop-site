@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('productsGrid');
     if (!grid) return;
 
-    db.collection('products').orderBy('createdAt', 'desc').get()
+    db.collection('products').where('emplacement', '==', 'produits').get()
         .then(snapshot => {
             if (snapshot.empty) {
                 grid.innerHTML = '<p class="empty-state">Aucun produit disponible pour le moment. Revenez bientôt !</p>';
