@@ -9,9 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            const items = snapshot.docs
+                .map(doc => doc.data())
+                .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+
             grid.innerHTML = '';
-            snapshot.forEach(doc => {
-                const p = doc.data();
+            items.forEach(p => {
                 const card = document.createElement('article');
                 card.className = 'product-card';
                 card.innerHTML = `
