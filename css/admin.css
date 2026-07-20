@@ -1,0 +1,207 @@
+/* ========================================== */
+/* ADMIN.CSS — feuille de style dédiée         */
+/* uniquement à gestion-marketshop-x7k2.html   */
+/* S'appuie sur les variables (--bg-*, --accent, */
+/* --radius-*, --border-soft...) définies dans */
+/* style.css, qui doit être chargé avant celui-ci */
+/* ========================================== */
+
+.admin-back-link {
+    padding: 8px 18px;
+    font-size: 0.88em;
+}
+
+.admin-panel {
+    max-width: 520px;
+    margin: 30px auto;
+}
+
+.admin-panel-list {
+    max-width: 640px;
+}
+
+.admin-panel-title {
+    color: var(--text-primary);
+    font-size: 1.15em;
+    margin: 0 0 20px 0;
+}
+
+.admin-error-msg {
+    color: var(--accent);
+    margin-top: 15px;
+    display: none;
+    font-size: 0.9em;
+}
+
+.admin-form-msg {
+    margin-top: 15px;
+    display: none;
+    font-size: 0.9em;
+}
+
+.admin-loading-msg {
+    color: var(--text-muted);
+}
+
+.admin-logout-link {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.admin-select {
+    width: 100%;
+    padding: 13px 14px;
+    background-color: var(--bg-1);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 1em;
+    font-family: inherit;
+}
+
+.admin-product-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.admin-product-row img {
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+}
+
+.admin-product-row strong {
+    color: var(--text-primary);
+}
+
+.admin-product-row span {
+    color: var(--text-muted);
+    font-size: 0.85em;
+}
+
+.admin-edit-btn {
+    background-color: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    margin-right: 8px;
+}
+
+.admin-edit-btn:hover {
+    background-color: var(--accent-soft);
+}
+
+.admin-delete-btn {
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 9px 18px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: background-color 0.25s ease;
+}
+
+.admin-delete-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+/* ========================================== */
+/* BARRE DU HAUT + NAVIGATION PAR ONGLETS      */
+/* ========================================== */
+.admin-topbar {
+    background-color: var(--bg-0);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 14px 20px;
+}
+
+.admin-topbar-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 0.92em;
+}
+
+.admin-shell {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 30px 20px 80px 20px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.admin-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: sticky;
+    top: 90px;
+}
+
+.admin-tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background-color: var(--bg-2);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border-soft);
+    color: var(--text-secondary);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.25s ease;
+}
+
+.admin-tab-btn svg { flex-shrink: 0; }
+
+.admin-tab-btn:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.admin-tab-btn.active {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.admin-tab-panel { display: none; }
+.admin-tab-panel.active { display: block; }
+
+@media (max-width: 760px) {
+    .admin-shell {
+        grid-template-columns: 1fr;
+    }
+    .admin-tabs {
+        position: static;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 4px;
+    }
+    .admin-tab-btn {
+        width: auto;
+        white-space: nowrap;
+    }
+}
