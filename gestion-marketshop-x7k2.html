@@ -47,96 +47,143 @@
             </div>
         </section>
 
-        <section class="page-intro" id="adminScreen" style="display:none;">
-            <span class="hero-tag">Espace privé</span>
-            <h1>Gestion des produits</h1>
-            <p>Connecté en tant que <strong id="adminEmail"></strong> — <a href="#" id="logoutBtn" class="admin-logout-link">Se déconnecter</a></p>
-
-            <div class="contact-container admin-panel">
-    <h2 class="admin-panel-title" id="formTitle">Ajouter un produit</h2>
-    <form id="productForm">
-                    <div class="form-group">
-                        <label for="nom">Nom du produit / service</label>
-                        <input type="text" id="nom" name="nom" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea id="description" name="description" rows="4" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="prix">Prix (laisser vide pour "Sur Devis")</label>
-                        <input type="text" id="prix" name="prix" placeholder="Ex: 15000">
-                    </div>
-                    <div class="form-group">
-                        <label for="emplacement">Où afficher ce contenu ?</label>
-                        <select id="emplacement" name="emplacement" class="admin-select">
-                            <option value="produits">Page Produits</option>
-                            <option value="accueil-haut">Accueil (mise en avant)</option>
-                            <option value="services">Page Services</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-    <label for="image">Photo</label>
-    <input type="file" id="image" name="image" accept="image/*" required>
-    <small id="imageHint" class="admin-loading-msg"></small>
-</div>
-<button type="submit" class="btn-submit" id="submitBtn">Ajouter le produit</button>
-<button type="button" id="cancelEditBtn" class="btn-outline" style="display:none; margin-top:10px; width:100%;">Annuler la modification</button>
-                    <p id="formMessage" class="admin-form-msg"></p>
-                </form>
+        <section id="adminScreen" style="display:none;">
+            <div class="admin-topbar">
+                <div class="admin-topbar-inner">
+                    <span>Connecté en tant que <strong id="adminEmail"></strong></span>
+                    <a href="#" id="logoutBtn" class="admin-logout-link">Se déconnecter</a>
+                </div>
             </div>
 
-            <div class="contact-container admin-panel admin-panel-list">
-                <h2 class="admin-panel-title">Produits publiés</h2>
-                <p id="listLoading" class="admin-loading-msg">Chargement...</p>
-                <div id="productsList"></div>
-            </div>
-            <div class="contact-container admin-panel admin-panel-list">
-    <h2 class="admin-panel-title">Coordonnées du site</h2>
-    <form id="settingsForm">
-        <div class="form-group">
-            <label for="setPhone1">Téléphone principal</label>
-            <input type="text" id="setPhone1" placeholder="228XXXXXXXX">
-        </div>
-        <div class="form-group">
-            <label for="setPhone2">Téléphone secondaire</label>
-            <input type="text" id="setPhone2" placeholder="228XXXXXXXX">
-        </div>
-        <div class="form-group">
-            <label for="setWhatsapp">Numéro WhatsApp</label>
-            <input type="text" id="setWhatsapp" placeholder="228XXXXXXXX">
-        </div>
-        <div class="form-group">
-            <label for="setEmail">Email</label>
-            <input type="email" id="setEmail">
-        </div>
-        <div class="form-group">
-            <label for="setAddress">Adresse</label>
-            <input type="text" id="setAddress">
-        </div>
-        <div class="form-group">
-            <label for="setHours">Horaires d'ouverture</label>
-            <input type="text" id="setHours" placeholder="Lun-Sam 8h-19h">
-        </div>
-        <div class="form-group">
-            <label for="setFacebook">Lien Facebook</label>
-            <input type="url" id="setFacebook" placeholder="https://facebook.com/...">
-        </div>
-        <div class="form-group">
-            <label for="setInstagram">Lien Instagram</label>
-            <input type="url" id="setInstagram" placeholder="https://instagram.com/...">
-        </div>
-        <div class="form-group">
-            <label for="setTiktok">Lien TikTok</label>
-            <input type="url" id="setTiktok" placeholder="https://tiktok.com/@...">
-        </div>
-        <div class="form-group">
-            <label for="setYoutube">Lien YouTube</label>
-            <input type="url" id="setYoutube" placeholder="https://youtube.com/@...">
-        </div>
-        <button type="submit" class="btn-submit" id="settingsSubmitBtn">Enregistrer les coordonnées</button>
-        <p id="settingsMessage" class="admin-form-msg"></p>
-    </form>
+            <div class="admin-shell">
+                <nav class="admin-tabs">
+                    <button class="admin-tab-btn active" data-tab="tab-produits">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg>
+                        Produits
+                    </button>
+                    <button class="admin-tab-btn" data-tab="tab-coordonnees">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Coordonnées
+                    </button>
+                    <button class="admin-tab-btn" data-tab="tab-temoignages">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        Témoignages
+                    </button>
+                    <button class="admin-tab-btn" data-tab="tab-faq">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 2-3 4"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg>
+                        FAQ
+                    </button>
+                </nav>
+
+                <div class="admin-content">
+
+                    <div class="admin-tab-panel active" id="tab-produits">
+                        <div class="contact-container admin-panel">
+                            <h2 class="admin-panel-title" id="formTitle">Ajouter un produit</h2>
+                            <form id="productForm">
+                                <div class="form-group">
+                                    <label for="nom">Nom du produit / service</label>
+                                    <input type="text" id="nom" name="nom" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea id="description" name="description" rows="4" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prix">Prix (laisser vide pour "Sur Devis")</label>
+                                    <input type="text" id="prix" name="prix" placeholder="Ex: 15000">
+                                </div>
+                                <div class="form-group">
+                                    <label for="emplacement">Où afficher ce contenu ?</label>
+                                    <select id="emplacement" name="emplacement" class="admin-select">
+                                        <option value="produits">Page Produits</option>
+                                        <option value="accueil-haut">Accueil (mise en avant)</option>
+                                        <option value="services">Page Services</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Photo</label>
+                                    <input type="file" id="image" name="image" accept="image/*" required>
+                                    <small id="imageHint" class="admin-loading-msg"></small>
+                                </div>
+                                <button type="submit" class="btn-submit" id="submitBtn">Ajouter le produit</button>
+                                <button type="button" id="cancelEditBtn" class="btn-outline" style="display:none; margin-top:10px; width:100%;">Annuler la modification</button>
+                                <p id="formMessage" class="admin-form-msg"></p>
+                            </form>
+                        </div>
+
+                        <div class="contact-container admin-panel admin-panel-list">
+                            <h2 class="admin-panel-title">Produits publiés</h2>
+                            <p id="listLoading" class="admin-loading-msg">Chargement...</p>
+                            <div id="productsList"></div>
+                        </div>
+                    </div>
+
+                    <div class="admin-tab-panel" id="tab-coordonnees">
+                        <div class="contact-container admin-panel admin-panel-list">
+                            <h2 class="admin-panel-title">Coordonnées du site</h2>
+                            <form id="settingsForm">
+                                <div class="form-group">
+                                    <label for="setPhone1">Téléphone principal</label>
+                                    <input type="text" id="setPhone1" placeholder="228XXXXXXXX">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setPhone2">Téléphone secondaire</label>
+                                    <input type="text" id="setPhone2" placeholder="228XXXXXXXX">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setWhatsapp">Numéro WhatsApp</label>
+                                    <input type="text" id="setWhatsapp" placeholder="228XXXXXXXX">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setEmail">Email</label>
+                                    <input type="email" id="setEmail">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setAddress">Adresse</label>
+                                    <input type="text" id="setAddress">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setHours">Horaires d'ouverture</label>
+                                    <input type="text" id="setHours" placeholder="Lun-Sam 8h-19h">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setFacebook">Lien Facebook</label>
+                                    <input type="url" id="setFacebook" placeholder="https://facebook.com/...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setInstagram">Lien Instagram</label>
+                                    <input type="url" id="setInstagram" placeholder="https://instagram.com/...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setTiktok">Lien TikTok</label>
+                                    <input type="url" id="setTiktok" placeholder="https://tiktok.com/@...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setYoutube">Lien YouTube</label>
+                                    <input type="url" id="setYoutube" placeholder="https://youtube.com/@...">
+                                </div>
+                                <button type="submit" class="btn-submit" id="settingsSubmitBtn">Enregistrer les coordonnées</button>
+                                <p id="settingsMessage" class="admin-form-msg"></p>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="admin-tab-panel" id="tab-temoignages">
+                        <div class="contact-container admin-panel admin-panel-list">
+                            <h2 class="admin-panel-title">Témoignages</h2>
+                            <p class="admin-loading-msg">Bientôt disponible — on construit cette partie à l'étape suivante.</p>
+                        </div>
+                    </div>
+
+                    <div class="admin-tab-panel" id="tab-faq">
+                        <div class="contact-container admin-panel admin-panel-list">
+                            <h2 class="admin-panel-title">FAQ</h2>
+                            <p class="admin-loading-msg">Bientôt disponible — on construit cette partie à l'étape suivante.</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
     </main>
@@ -148,7 +195,9 @@
     </footer>
 
     <script src="./js/firebase-config.js"></script>
-    <script src="./js/admin-settings.js" defer></script>
     <script src="./js/admin.js" defer></script>
+    <script src="./js/admin-settings.js" defer></script>
+    <script src="./js/admin-tabs.js" defer></script>
 </body>
-</html>
+    </html>
+    
