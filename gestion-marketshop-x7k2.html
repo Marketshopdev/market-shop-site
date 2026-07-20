@@ -120,19 +120,8 @@
                         </div>
                     </div>
 
-                    <div class="admin-tab-panel" id="tab-temoignages">
-    <div class="contact-container admin-panel admin-panel-list">
-        <h2 class="admin-panel-title">En attente de validation</h2>
-        <p id="pendingLoading" class="admin-loading-msg">Chargement...</p>
-        <div id="pendingTestimonialsList"></div>
-    </div>
-
-    <div class="contact-container admin-panel admin-panel-list">
-        <h2 class="admin-panel-title">Témoignages publiés</h2>
-        <p id="approvedLoading" class="admin-loading-msg">Chargement...</p>
-        <div id="approvedTestimonialsList"></div>
-    </div>
-                    </div>
+                    <div class="admin-tab-panel" id="tab-coordonnees">
+                        <div class="contact-container admin-panel admin-panel-list">
                             <h2 class="admin-panel-title">Coordonnées du site</h2>
                             <form id="settingsForm">
                                 <div class="form-group">
@@ -183,8 +172,15 @@
 
                     <div class="admin-tab-panel" id="tab-temoignages">
                         <div class="contact-container admin-panel admin-panel-list">
-                            <h2 class="admin-panel-title">Témoignages</h2>
-                            <p class="admin-loading-msg">Bientôt disponible — on construit cette partie à l'étape suivante.</p>
+                            <h2 class="admin-panel-title">En attente de validation</h2>
+                            <p id="pendingLoading" class="admin-loading-msg">Chargement...</p>
+                            <div id="pendingTestimonialsList"></div>
+                        </div>
+
+                        <div class="contact-container admin-panel admin-panel-list">
+                            <h2 class="admin-panel-title">Témoignages publiés</h2>
+                            <p id="approvedLoading" class="admin-loading-msg">Chargement...</p>
+                            <div id="approvedTestimonialsList"></div>
                         </div>
                     </div>
 
@@ -209,7 +205,8 @@
     <script src="./js/firebase-config.js"></script>
     <script src="./js/admin.js" defer></script>
     <script src="./js/admin-settings.js" defer></script>
+    <script src="./js/admin-testimonials.js" defer></script>
     <script src="./js/admin-tabs.js" defer></script>
 </body>
-    </html>
-    
+        </html>
+                    
