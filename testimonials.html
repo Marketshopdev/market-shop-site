@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Témoignages | Market Shop</title>
     <meta name="description" content="Découvrez les avis et témoignages de nos clients satisfaits par les produits et services Market Shop.">
-    <meta property="og:title" content="Market Shop | Tout ce dont vous avez besoin, au meilleur prix">
-<meta property="og:description" content="Market Shop vous propose une large gamme de produits et services de qualité, avec un accompagnement personnalisé.">
-<meta property="og:image" content="https://[TON-DOMAINE].com/img/logo.png">
-<meta property="og:url" content="https://[TON-DOMAINE].com/index.html">
-<meta property="og:type" content="website">
+    <meta property="og:title" content="Témoignages | Market Shop">
+    <meta property="og:description" content="Découvrez les avis et témoignages de nos clients satisfaits par les produits et services Market Shop.">
+    <meta property="og:image" content="https://[TON-DOMAINE].com/img/logo.png">
+    <meta property="og:url" content="https://[TON-DOMAINE].com/testimonials.html">
+    <meta property="og:type" content="website">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0a192f">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/components.css">
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
@@ -29,66 +31,66 @@
 
         <!-- Note globale -->
         <section class="rating-summary">
-            <div class="rating-score">4.8<span>/5</span></div>
-            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
-            <p>Basé sur [NOMBRE_AVIS] avis clients</p>
+            <div class="rating-score"><span id="ratingScore">—</span><span>/5</span></div>
+            <div class="rating-stars" id="ratingStars"></div>
+            <p>Basé sur <span id="ratingCount">0</span> avis clients</p>
         </section>
 
         <section class="testimonials">
-            <div class="testimonials-grid">
+            <div class="testimonials-grid" id="testimonialsGrid">
+                <p class="admin-loading-msg">Chargement des témoignages...</p>
+            </div>
+        </section>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Un service rapide et des produits de très bonne qualité. Je recommande vivement !"</p>
-                    <span class="testimonial-author">— Aminata K.</span>
-                </div>
+        <!-- Formulaire public : soumission d'avis (publication après validation par l'équipe) -->
+        <section class="contact-section">
+            <span class="hero-tag">Votre avis compte</span>
+            <h2 class="section-title">Laissez votre témoignage</h2>
+            <p class="contact-subtitle">Votre avis sera publié après vérification par notre équipe.</p>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Prix compétitifs et équipe très professionnelle. Market Shop est devenu mon fournisseur de confiance."</p>
-                    <span class="testimonial-author">— Kossi M.</span>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Livraison rapide, contact facile via WhatsApp. Exactement ce que je cherchais."</p>
-                    <span class="testimonial-author">— Sarah T.</span>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐</div>
-                    <p>"Bon rapport qualité-prix. Le service client a su répondre à toutes mes questions avant l'achat."</p>
-                    <span class="testimonial-author">— Yves D.</span>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p>"J'ai commandé plusieurs fois déjà, toujours satisfait. Une entreprise sérieuse et réactive."</p>
-                    <span class="testimonial-author">— Fatou N.</span>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Le devis a été fait en moins d'une heure sur WhatsApp. Franchement efficace."</p>
-                    <span class="testimonial-author">— Michel A.</span>
-                </div>
-
+            <div class="contact-container">
+                <form id="submitTestimonialForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="subAuthor">Votre nom</label>
+                        <input type="text" id="subAuthor" placeholder="Votre nom" required maxlength="79">
+                    </div>
+                    <div class="form-group">
+                        <label for="subRating">Votre note</label>
+                        <select id="subRating" class="admin-select">
+                            <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                            <option value="4">⭐⭐⭐⭐ (4)</option>
+                            <option value="3">⭐⭐⭐ (3)</option>
+                            <option value="2">⭐⭐ (2)</option>
+                            <option value="1">⭐ (1)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="subText">Votre témoignage</label>
+                        <textarea id="subText" rows="4" placeholder="Partagez votre expérience" required maxlength="799"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit" id="submitTestimonialBtn">Envoyer mon avis</button>
+                    <p id="submitTestimonialMessage" class="admin-form-msg" style="margin-top:15px; display:none;"></p>
+                </form>
             </div>
         </section>
 
         <section class="cta-final">
-            <h2>Vous aussi, partagez votre expérience</h2>
-            <p>Votre avis compte pour nous. Envoyez-nous votre témoignage sur WhatsApp.</p>
-            <a href="https://wa.me/[TON_NUMERO_WHATSAPP]?text=Bonjour%2C%20je%20souhaite%20laisser%20un%20avis%20sur%20Market%20Shop" class="btn-orange" target="_blank">Laisser un avis</a>
+            <h2>Une question avant de commander ?</h2>
+            <p>Notre équipe est disponible pour vous répondre rapidement.</p>
+            <a href="#" data-setting="whatsapp-link" data-wa-text="Bonjour, j'ai une question" class="btn-orange" target="_blank">Discuter sur WhatsApp</a>
         </section>
     </main>
 
 <div id="footer-placeholder"></div>
 
+<script src="./js/firebase-config.js"></script>
 <script src="./js/includes.js" defer></script>
 <script src="./js/site-settings.js" defer></script>
 <script src="./js/analytics.js" defer></script>
 <script src="./js/main.js" defer></script>
 <script src="./js/share.js" defer></script>
+<script src="./js/testimonials-dynamic.js" defer></script>
+<script src="./js/submit-testimonial.js" defer></script>
 </body>
-                  </html>
+                                </html>
+                        
