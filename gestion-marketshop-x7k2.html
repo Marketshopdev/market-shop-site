@@ -185,10 +185,27 @@
                     </div>
 
                     <div class="admin-tab-panel" id="tab-faq">
-                        <div class="contact-container admin-panel admin-panel-list">
-                            <h2 class="admin-panel-title">FAQ</h2>
-                            <p class="admin-loading-msg">Bientôt disponible — on construit cette partie à l'étape suivante.</p>
-                        </div>
+    <div class="contact-container admin-panel">
+        <h2 class="admin-panel-title">Ajouter une question</h2>
+        <form id="faqForm">
+            <div class="form-group">
+                <label for="faqQuestion">Question</label>
+                <input type="text" id="faqQuestion" required>
+            </div>
+            <div class="form-group">
+                <label for="faqAnswer">Réponse</label>
+                <textarea id="faqAnswer" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit" id="faqSubmitBtn">Publier la question</button>
+            <p id="faqMessage" class="admin-form-msg"></p>
+        </form>
+    </div>
+
+    <div class="contact-container admin-panel admin-panel-list">
+        <h2 class="admin-panel-title">Questions publiées</h2>
+        <p id="faqListLoading" class="admin-loading-msg">Chargement...</p>
+        <div id="faqList"></div>
+    </div>
                     </div>
 
                 </div>
@@ -206,6 +223,7 @@
     <script src="./js/admin.js" defer></script>
     <script src="./js/admin-settings.js" defer></script>
     <script src="./js/admin-testimonials.js" defer></script>
+    <script src="./js/admin-faq.js" defer></script>
     <script src="./js/admin-tabs.js" defer></script>
 </body>
         </html>
