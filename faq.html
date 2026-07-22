@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ | Market Shop</title>
     <meta name="description" content="Retrouvez les réponses aux questions fréquentes sur les produits, livraisons et services de Market Shop.">
-    <meta property="og:title" content="Market Shop | Tout ce dont vous avez besoin, au meilleur prix">
-<meta property="og:description" content="Market Shop vous propose une large gamme de produits et services de qualité, avec un accompagnement personnalisé.">
-<meta property="og:image" content="https://[TON-DOMAINE].com/img/logo.png">
-<meta property="og:url" content="https://[TON-DOMAINE].com/index.html">
-<meta property="og:type" content="website">
+    <meta property="og:title" content="FAQ | Market Shop">
+    <meta property="og:description" content="Retrouvez les réponses aux questions fréquentes sur les produits, livraisons et services de Market Shop.">
+    <meta property="og:image" content="https://[TON-DOMAINE].com/img/logo.png">
+    <meta property="og:url" content="https://[TON-DOMAINE].com/faq.html">
+    <meta property="og:type" content="website">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0a192f">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/components.css">
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
@@ -28,84 +30,26 @@
         </section>
 
         <section class="faq-section">
-            <div class="faq-list">
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Quels sont vos délais de livraison ?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Les délais varient selon votre localisation, mais nous traitons généralement les commandes sous [DELAI_LIVRAISON] après confirmation.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Quels moyens de paiement acceptez-vous ?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Nous acceptons [MOYENS_DE_PAIEMENT — ex: Mobile Money, espèces à la livraison, virement].</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Puis-je retourner ou échanger un produit ?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Oui, sous certaines conditions. Contactez-nous dans les [DELAI_RETOUR] suivant la réception pour organiser un retour ou un échange.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Proposez-vous des devis personnalisés ?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Absolument. Contactez-nous via WhatsApp ou le formulaire de contact avec vos besoins, et nous vous répondons avec un devis adapté.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Comment vous contacter le plus rapidement ?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>WhatsApp reste le moyen le plus rapide pour nous joindre. Vous pouvez aussi nous appeler directement ou utiliser le formulaire de contact.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Livrez-vous en dehors de [VILLE_PRINCIPALE] ?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Oui, nous livrons également [ZONES_DE_LIVRAISON]. Contactez-nous pour vérifier la disponibilité dans votre zone.</p>
-                    </div>
-                </div>
-
+            <div class="faq-list" id="faqDynamicList">
+                <p class="admin-loading-msg">Chargement des questions...</p>
             </div>
         </section>
 
         <section class="cta-final">
             <h2>Vous avez une autre question ?</h2>
             <p>Notre équipe est disponible pour vous répondre rapidement.</p>
-            <a href="https://wa.me/[TON_NUMERO_WHATSAPP]" class="btn-orange" target="_blank">Discuter sur WhatsApp</a>
+            <a href="#" data-setting="whatsapp-link" data-wa-text="Bonjour, j'ai une question" class="btn-orange" target="_blank">Discuter sur WhatsApp</a>
         </section>
     </main>
 
 <div id="footer-placeholder"></div>
 
+<script src="./js/firebase-config.js"></script>
 <script src="./js/includes.js" defer></script>
 <script src="./js/site-settings.js" defer></script>
 <script src="./js/analytics.js" defer></script>
 <script src="./js/main.js" defer></script>
 <script src="./js/share.js" defer></script>
+<script src="./js/faq-dynamic.js" defer></script>
 </body>
-  </html>
+</html>
